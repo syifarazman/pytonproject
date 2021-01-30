@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+
+<!-- Page Header -->
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Prediction</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Prediction</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Page content -->
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Text Review Prediction</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="submit" method="post">
+            {% csrf_token %}
+            <!-- Description -->
+            <h6 class="heading-small text-muted mb-4">Review</h6>
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Text Review</label><br>
+                <textarea type="text" id="sentiment_typed_tweet" name="sentiment_typed_tweet" class="r-text-field a-field__input search__input" placeholder="" rows="10" cols="30" required></textarea>
+                <br>
+                <button class="btn btn-sm btn-default float-right" type="submit">
+                  <span class="btn btn-sm btn-default float-right" type="submit">Submit</span>
+                  <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.966 56.966" class="search__icon search__icon-search">
+                    <path d="M55.146 51.887L41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z"/>
+                  </svg>-->
+                </button>
+                <!-- <a href="#" class="btn btn-sm btn-default float-right" type="submit">Submit</a> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

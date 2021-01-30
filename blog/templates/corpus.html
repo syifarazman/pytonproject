@@ -1,0 +1,88 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+{% block content %}
+
+  <!-- Page Header -->
+  <div class="header bg-primary pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Corpus</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="/dashboard"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Corpus</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Page content -->
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col-xl-6 order-xl-1">
+        <div class="card">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Positive Corpus</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+              <!-- Description -->
+              <h6 class="heading-small text-muted mb-4">Download</h6>
+              <div class="pl-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Click button down below to download positive corpus</label>
+                  <br>
+                  {% for post in file %}
+                    {% if post.title == 'Positive Corpus' %}
+                      <a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}" class="btn btn-sm btn-default float-left">Positive Corpus</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 order-xl-1">
+        <div class="card">
+          <div class="card-header">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Negative Corpus</h3>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+              <!-- Description -->
+              <h6 class="heading-small text-muted mb-4">Download</h6>
+              <div class="pl-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Click button down below to download negative corpus</label>
+                  <br>
+                  {% for post in file %}
+                    {% if post.title == 'Negative Corpus' %}
+                      <a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}" class="btn btn-sm btn-default float-left">Negative Corpus</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+    {% include "includes/footer.html" %}
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
